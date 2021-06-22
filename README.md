@@ -4,7 +4,7 @@ Azure cloud network
 
 The files in this repository were used to configure the network depicted below.
 
-![alt text](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Diagrams/AzureELKnetwork.png "Network Diagram")
+![alt text](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Diagrams/AzureELKdiagram.png "Network Diagram")
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible folder may be used to install only certain pieces of it, such as Filebeat.
 
@@ -37,12 +37,12 @@ Metricbeat is another tool that can be utilized with ELK. Metricbeat collects th
 
 The configuration details of each machine may be found below.
 
-| Name                | Function   | IP Address                | Operating System |
-|---------------------|------------|---------------------------|------------------|
-| Jumpbox Provisioner | Gateway    | 13.91.242.167             | Linux OS         |
-| Web-1               | web server | 10.0.0.8                  | Linux OS         |
-| Web-2               | Web server | 10.0.0.9                  | Linux OS         |
-| ELK                 | ELK        | 10.1.0.4<br>20.85.225.146 | Linux OS         |
+| Name                | Function   | IP Address                | Operating System          |
+|---------------------|------------|---------------------------|---------------------------|
+| Jumpbox Provisioner | Gateway    | 13.91.242.167             | Linux OS Ubuntu 20.04-LTS |
+| Web 1               | web server | 10.0.0.8                  | Linux OS Ubuntu 20.04-LTS |
+| Web 2               | Web server | 10.0.0.9                  | Linux OS Ubuntu 20.04-LTS |
+| ELK                 | ELK        | 10.1.0.4<br>20.85.225.146 | Linux OS Ubuntu 20.04-LTS |
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
