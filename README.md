@@ -26,8 +26,8 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-Load balancers help protect the availability of the network. Load balancers help maintain the availability by shifting the load between different servers to ensure that a single server does not become overwhelmed and thus unavailable. 
+Load balancing ensures that the application will be highly accessible, in addition to restricting access to the network.
+Load balancers help protect the availability of the network by shifting the load between different servers to ensure that a single server does not become overwhelmed and thus unavailable. 
 This network also utlilizes a jumpbox. A jumpbox helps restrict access to the network by acting as a single gateway or "door" to the network. Utilizing a jumpbox allows for a much more easy to follow ACL in the NSG/firewall rules. In this project, the jumpbox also provided an administrative type workstation that can be utilized to manage and configurate the other systems in the network. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files and system metrics.
@@ -40,8 +40,8 @@ The configuration details of each machine may be found below.
 | Name                | Function   | IP Address                | Operating System |
 |---------------------|------------|---------------------------|------------------|
 | Jumpbox Provisioner | Gateway    | 13.91.242.167             | Linux OS         |
-| Web 1               | web server | 10.0.0.8                  | Linux OS         |
-| Web 2               | Web server | 10.0.0.9                  | Linux OS         |
+| Web-1               | web server | 10.0.0.8                  | Linux OS         |
+| Web-2               | Web server | 10.0.0.9                  | Linux OS         |
 | ELK                 | ELK        | 10.1.0.4<br>20.85.225.146 | Linux OS         |
 ### Access Policies
 
@@ -59,13 +59,13 @@ A summary of the access policies in place can be found in the table below.
 | Name                | publicly accessible | Allowed IPs    |
 |---------------------|---------------------|----------------|
 | Jumpbox Provisioner | Yes                 | 66.232.187.156 |
-| WEB1                | no                  | N/A            |
-| WEB2                | no                  | N/A            |
+| WEB-1               | no                  | N/A            |
+| WEB-2               | no                  | N/A            |
 | ELK                 | no                  | N/A            |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because this allows for a much faster reinstall of ELK onto WEB1 and WEB2 and it also allows for a faster configuration for ELK on newly added VMs. 
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because this allows for a much faster reinstall of ELK onto Web-1 and Web-2 and it also allows for a faster configuration for ELK on newly added VMs. 
 
 The playbook implements the following tasks:
 - Install docker.io
@@ -83,8 +83,8 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- Web1 10.0.0.8
-- Web2 10.0.0.7
+- Web-1 10.0.0.8
+- Web-2 10.0.0.7
 
 We have installed the following Beats on these machines:
 - Filebeat
@@ -102,14 +102,14 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the install-elk.yml, install-filebeat.yml, and the install-metric.yml file to etc/ansible.
-- Copy the filebeat-config.yml and metricbeat-config.yml files to etc/ansible/files -This is the directory the install ymls pull the configuration files from when the playbook is ran.
+- Copy the filebeat-config.yml and metricbeat-config.yml files to etc/ansible/files -This is the directory the install playbooks pull the configuration files from when the playbook is ran.
 - Update the hosts file of ansible to create a host for Elk. Note: The host must be named Elk or the install-elk.yml will not be able to find the correct host to install ELK.
-- Below is an example of a host file with a host for Elk. For your install be sure to replace 10.1.0.4 with the private IP of your ELK VM. The ansible_python_interpreter=/usr/bin/python3 must be included after the IP address of your elk machine.
+- Below is an example of a host file with a host created for Elk. For your install be sure to replace 10.1.0.4 with the private IP of your ELK VM. The ansible_python_interpreter=/usr/bin/python3 must be included after the IP address of your elk machine.
 - ![alt text](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/images/hosts.png)
 - Update the filebeat-config.yml and metricbeat-config.yml files to include the correct hosts IP for your network. This would be the Public IP of your ELK VM.
 - Run the install-elk.yml, and navigate to  http://<yourelkVMpublicIP>:5601/ to check that the installation worked as expected.
 - Run the install-filebeat.yml and the install-metricbeat.yml to install each beat. 
   - you can verify the installation in Kibana by navigating to their respective dashboards.
-    - for the install-filebeat.yml, the monitoring of syslogs is already enabled
+    - for the install-filebeat.yml, the monitoring of syslogs is already enabled.
     - for the install-metricbeat.config.yml, the monitoring of docker metrics is already enabled. 
       - Both of these yml files can be changed to meet yours needs. Utilize the metricbeat and filebeat reference pages for more. 
