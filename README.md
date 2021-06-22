@@ -8,10 +8,10 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible folder may be used to install only certain pieces of it, such as Filebeat.
 
-  - (../Ansible/install-DVWA.yml)
-  - (../Ansible/install-elk.yml)
-  - (../Ansible/install-filebeat.yml)
-  - (../Ansible/install-metricbeat.yml)
+  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-DVWA.yml)
+  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-ELK.yml)
+  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-filebeat.yml)
+  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-metricbeat.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -65,8 +65,7 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because this allows for a much faster reinstall of ELK onto WEB1 and WEB2 and it also allows for a faster configuration for ELK on newly added VMs. 
 
 The playbook implements the following tasks:
 - Install docker.io
