@@ -4,14 +4,14 @@ Azure cloud network
 
 The files in this repository were used to configure the network depicted below.
 
-![alt text](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Diagrams/AzureELKnetwork.png "Network Diagram")
+!(https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Diagrams/AzureELKnetwork.png "Network Diagram")
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible folder may be used to install only certain pieces of it, such as Filebeat.
 
-  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-DVWA.yml)
-  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-ELK.yml)
-  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-filebeat.yml)
-  - (https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-metricbeat.yml)
+  - [Install-DVWA.yml](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-DVWA.yml)
+  - [Install-ELK.yml](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-ELK.yml)
+  - [Install-filebeat.yml](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-filebeat.yml)
+  - [Install-metricbeat.yml](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Ansible/install-metricbeat.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -78,7 +78,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-(Images/docker_ps_output.png)
+!(https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/images/docker_ps_output.png)
 
 
 ### Target Machines & Beats
@@ -93,7 +93,7 @@ We have installed the following Beats on these machines:
 These Beats allow us to collect the following information from each machine:
 - **Filebeat**-  As previously mentioned,  Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing. In this instance, filebeat can monitor the changes to the system log files on Web1 and Web2. Below is a screenshot of Kibana that demonstrates how Kibana with Filebeat would show that a new user "bob" was created on Web-1. If the adding of new users is prohibited on the Web1 VM, then this information could be an Indicator of Compromise. This is just one example of information that can be pulled from the syslog while utilizing ELK.
 
-(Images/kibana_user_added_example.png)
+!(https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/images/kibana_user_added_example.PNG "user added example")
 
 - **Metricbeat**- Metricbeat collects the metric data from the services and the operating system and sends it to the ELK server. For example, Kibana can be used to monitor the docker metrics on web1 and web2. Using this with the docker config, I can verify that both the containers are running on Web1 and Web2. Quick access to this information can greatly speed up the troubleshooting process if there are reported outages of the webserver.
 
@@ -105,7 +105,7 @@ SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml and metricbeat-config.yml files to etc/ansible/files -This is the directory the install ymls pull the configuration files from when the playbook is ran.
 - Update the hosts file of ansible to create a host for Elk. Note: The host must be named Elk or the install-elk.yml will not be able to find the correct host to install ELK.
 - Below is an example of a host file with a host for Elk. For your install be sure to replace 10.1.0.4 with the private IP of your ELK VM. The ansible_python_interpreter=/usr/bin/python3 must be included after the IP address of your elk machine.
-- (Images/hosts.png)
+- !(https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/images/hosts.png)
 - Update the filebeat-config.yml and metricbeat-config.yml files to include the correct hosts IP for your network. This would be the Public IP of your ELK VM.
 - Run the install-elk.yml, and navigate to  http://<yourelkVMpublicIP>:5601/ to check that the installation worked as expected.
 - Run the install-filebeat.yml and the install-metricbeat.yml to install each beat. 
