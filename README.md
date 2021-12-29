@@ -4,7 +4,7 @@ Azure cloud network
 
 The files in this repository were used to configure the network depicted below.
 
-![alt text](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Diagrams/AzureELKdiagram.png "Network Diagram")
+![alt text](https://github.com/eahilder/WUSTL-Cybersecurity-Bootcamp-Project-1-Azure-Cloud-Network/blob/main/Diagrams/AzureELKdiagam.png "Network Diagram")
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible folder may be used to install only certain pieces of it, such as Filebeat.
 
